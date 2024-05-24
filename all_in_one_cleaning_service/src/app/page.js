@@ -1,3 +1,6 @@
+import AboutUsSection from "./components/AboutUs";
+import BrandSection from "./components/Brands";
+import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import PortfolioSection from "./components/PortfolioSection";
 import ServicesSection from "./components/ServicesSection";
@@ -7,9 +10,12 @@ export default function Home() {
   return (
     <div>
     <HeroSection />
+    <AboutUsSection />
+    <BrandSection />
     <ServicesSection />
     <PortfolioSection />
     <TestimonialsSection />
+    <Footer />
     </div>
   );
 }
