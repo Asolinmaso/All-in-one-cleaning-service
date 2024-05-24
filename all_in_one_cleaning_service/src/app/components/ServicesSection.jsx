@@ -32,14 +32,14 @@ const ServicesSection = () => {
         <h1 className="text-4xl font-bold text-gray-800 mb-12">WHAT WE ARE OFFERING</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 cursor-pointer">
           {services.map((service, index) => (
-            <div key={index} className="relative border border-yellow-400 p-6 rounded-lg hover:bg-yellow-400 transition-colors duration-300">
+            <div key={index} className="group relative border border-yellow-400 p-6 rounded-lg hover:bg-yellow-400 transition-colors duration-300">
               <div className="absolute left-1/2 transform -translate-x-1/2 -top-12 w-24 h-24">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white">
                   <Image src={service.image} alt={service.title} layout="fill" objectFit="cover" className="rounded-full" />
                 </div>
               </div>
               <div className="mt-16 pt-8">
-                <h3 className="text-lg font-semibold text-yellow-600">{service.title}</h3>
+                <h3 className="text-lg font-semibold text-yellow-600 group-hover:text-black">{service.title}</h3>
                 <p className="text-gray-600 mt-4">{service.description}</p>
               </div>
             </div>
