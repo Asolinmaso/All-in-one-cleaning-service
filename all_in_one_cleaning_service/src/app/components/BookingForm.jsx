@@ -1,13 +1,38 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import Select from 'react-select';
 
 const citiesInTamilNadu = [
-  "Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Erode",
-  "Tirunelveli", "Vellore", "Thoothukudi", "Dindigul", "Thanjavur",
-  "Ranipet", "Nagercoil", "Kanchipuram", "Karur", "Udhagamandalam",
-  "Hosur", "Kumbakonam", "Tiruvannamalai", "Pollachi", "Rajapalayam",
-  "Sivakasi", "Pudukkottai", "Vaniyambadi", "Ambur", "Nagapattinam",
-  "Krishnagiri", "Theni", "Ariyalur", "Sirkazhi"
+  { value: 'Chennai', label: 'Chennai' },
+  { value: 'Coimbatore', label: 'Coimbatore' },
+  { value: 'Madurai', label: 'Madurai' },
+  { value: 'Tiruchirappalli', label: 'Tiruchirappalli' },
+  { value: 'Salem', label: 'Salem' },
+  { value: 'Erode', label: 'Erode' },
+  { value: 'Tirunelveli', label: 'Tirunelveli' },
+  { value: 'Vellore', label: 'Vellore' },
+  { value: 'Thoothukudi', label: 'Thoothukudi' },
+  { value: 'Dindigul', label: 'Dindigul' },
+  { value: 'Thanjavur', label: 'Thanjavur' },
+  { value: 'Ranipet', label: 'Ranipet' },
+  { value: 'Nagercoil', label: 'Nagercoil' },
+  { value: 'Kanchipuram', label: 'Kanchipuram' },
+  { value: 'Karur', label: 'Karur' },
+  { value: 'Udhagamandalam', label: 'Udhagamandalam' },
+  { value: 'Hosur', label: 'Hosur' },
+  { value: 'Kumbakonam', label: 'Kumbakonam' },
+  { value: 'Tiruvannamalai', label: 'Tiruvannamalai' },
+  { value: 'Pollachi', label: 'Pollachi' },
+  { value: 'Rajapalayam', label: 'Rajapalayam' },
+  { value: 'Sivakasi', label: 'Sivakasi' },
+  { value: 'Pudukkottai', label: 'Pudukkottai' },
+  { value: 'Vaniyambadi', label: 'Vaniyambadi' },
+  { value: 'Ambur', label: 'Ambur' },
+  { value: 'Nagapattinam', label: 'Nagapattinam' },
+  { value: 'Krishnagiri', label: 'Krishnagiri' },
+  { value: 'Theni', label: 'Theni' },
+  { value: 'Ariyalur', label: 'Ariyalur' },
+  { value: 'Sirkazhi', label: 'Sirkazhi' }
 ];
 
 const BookingForm = () => {
@@ -48,6 +73,20 @@ const BookingForm = () => {
     setErrors((prevErrors) => {
       const newErrors = { ...prevErrors, ...fieldErrors };
       if (!fieldErrors[id]) delete newErrors[id];
+      return newErrors;
+    });
+  };
+
+  const handleCityChange = (selectedOption) => {
+    setForm({
+      ...form,
+      city: selectedOption ? selectedOption.value : ''
+    });
+
+    const fieldErrors = validate('city', selectedOption ? selectedOption.value : '');
+    setErrors((prevErrors) => {
+      const newErrors = { ...prevErrors, ...fieldErrors };
+      if (!fieldErrors.city) delete newErrors.city;
       return newErrors;
     });
   };
@@ -116,17 +155,15 @@ const BookingForm = () => {
           </div>
           <div className="form-group mb-4">
             <label htmlFor="city" className="block text-lg font-medium">City</label>
-            <select
-              className="form-select block w-full mt-1 px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300"
-              id="city"
-              value={form.city}
-              onChange={handleChange}
-            >
-              <option value="" disabled>Choose your city</option>
-              {citiesInTamilNadu.map((city, index) => (
-                <option key={index} value={city}>{city}</option>
-              ))}
-            </select>
+            <Select
+              className="basic-single"
+              classNamePrefix="select"
+              isClearable={true}
+              isSearchable={true}
+              name="city"
+              options={citiesInTamilNadu}
+              onChange={handleCityChange}
+            />
             {errors.city && <p className="text-red-600 mt-1">{errors.city}</p>}
           </div>
           <div className="form-group mb-4">
