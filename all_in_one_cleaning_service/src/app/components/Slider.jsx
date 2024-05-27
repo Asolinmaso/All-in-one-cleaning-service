@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const slides = [
   {
@@ -37,6 +37,13 @@ const slides = [
 const Slider = () => {
   const [current, setCurrent] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const nextSlide = () => {
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
@@ -46,17 +53,25 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative my-12 w-full flex justify-center items-center overflow-hidden" style={{ height: '60vh' }}>
-      <div className="relative w-3/4 h-full flex overflow-hidden">
-        {slides.map((slide, index) => (
-          <div key={index} className={`absolute top-0 left-0 w-full h-full transition-all duration-700 ease-in-out ${index === current ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ backgroundImage: `url(${slide.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <div className="absolute bottom-5 left-5 bg-black bg-opacity-60 p-4 rounded-lg text-white max-w-xs md:max-w-sm lg:max-w-md">
-              <h2 className="text-lg md:text-xl lg:text-2xl font-bold">{slide.name}</h2>
-              <p className="mt-2 text-sm md:text-base lg:text-lg">{slide.description}</p>
-              <button className="mt-3 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded">See more</button>
+    <div className="relative w-full flex justify-center items-center overflow-hidden" style={{ height: '60vh' }}>
+      <div className="relative w-3/4 h-full flex justify-center items-center overflow-hidden">
+        <div className="absolute inset-0 flex justify-between items-center">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute transition-all duration-700 ease-in-out transform ${index === current ? 'opacity-100 scale-100' : 'opacity-0 scale-90'} ${index === (current + 1) % slides.length ? 'translate-x-full opacity-70 scale-90' : ''} ${index === (current - 1 + slides.length) % slides.length ? '-translate-x-full opacity-70 scale-90' : ''}`}
+              style={{ width: '70%', height: '100%', backgroundImage: `url(${slide.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+            >
+              {index === current && (
+                <div className="absolute bottom-5 left-5 bg-black bg-opacity-60 p-4 rounded-lg text-white max-w-xs md:max-w-sm lg:max-w-md">
+                  <h2 className="text-lg md:text-xl lg:text-2xl font-bold">{slide.name}</h2>
+                  <p className="mt-2 text-sm md:text-base lg:text-lg">{slide.description}</p>
+                  <button className="mt-3 py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white rounded">See more</button>
+                </div>
+              )}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <div className="absolute bottom-5 w-full flex justify-center space-x-4">
         <button onClick={prevSlide} className="bg-gray-700 text-white rounded-full shadow-md hover:bg-gray-800 p-2">
