@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const citiesInTamilNadu = [
   "Chennai", "Coimbatore", "Madurai", "Tiruchirappalli", "Salem", "Erode",
@@ -21,30 +21,56 @@ const BookingForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  const validate = () => {
+  const validate = (field, value) => {
     const newErrors = {};
-    if (!form.name) newErrors.name = 'Name is required';
-    if (!form.email) newErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(form.email)) newErrors.email = 'Email address is invalid';
-    if (!form.phone) newErrors.phone = 'Phone number is required';
-    else if (!/^\d{10}$/.test(form.phone)) newErrors.phone = 'Phone number is invalid';
-    if (!form.city) newErrors.city = 'City is required';
-    if (!form.service) newErrors.service = 'Service is required';
+    if (field === 'name' && !value) newErrors.name = 'Name is required';
+    if (field === 'email') {
+      if (!value) newErrors.email = 'Email is required';
+      else if (!/\S+@\S+\.\S+/.test(value)) newErrors.email = 'Email address is invalid';
+    }
+    if (field === 'phone') {
+      if (!value) newErrors.phone = 'Phone number is required';
+      else if (!/^\d{10}$/.test(value)) newErrors.phone = 'Phone number is invalid';
+    }
+    if (field === 'city' && !value) newErrors.city = 'City is required';
+    if (field === 'service' && !value) newErrors.service = 'Service is required';
     return newErrors;
   };
 
   const handleChange = (e) => {
+    const { id, value } = e.target;
     setForm({
       ...form,
-      [e.target.id]: e.target.value
+      [id]: value
+    });
+
+    const fieldErrors = validate(id, value);
+    setErrors((prevErrors) => {
+      const newErrors = { ...prevErrors, ...fieldErrors };
+      if (!fieldErrors[id]) delete newErrors[id];
+      return newErrors;
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = validate();
+    const newErrors = {};
+    Object.assign(newErrors, validate('name', form.name));
+    Object.assign(newErrors, validate('email', form.email));
+    Object.assign(newErrors, validate('phone', form.phone));
+    Object.assign(newErrors, validate('city', form.city));
+    Object.assign(newErrors, validate('service', form.service));
+
     if (Object.keys(newErrors).length === 0) {
       alert('Form submitted successfully!');
+      setForm({
+        name: '',
+        email: '',
+        phone: '',
+        city: '',
+        service: ''
+      });
+      setErrors({});
     } else {
       setErrors(newErrors);
     }
@@ -98,7 +124,7 @@ const BookingForm = () => {
             >
               <option value="" disabled>Choose your city</option>
               {citiesInTamilNadu.map((city, index) => (
-                <option key={index} value={city.toLowerCase()}>{city}</option>
+                <option key={index} value={city}>{city}</option>
               ))}
             </select>
             {errors.city && <p className="text-red-600 mt-1">{errors.city}</p>}
@@ -112,16 +138,16 @@ const BookingForm = () => {
               onChange={handleChange}
             >
               <option value="" disabled>Choose your service</option>
-              <option value="3">Mechanised Dewatering</option>
-              <option value="1">Sludge Removal</option>
-              <option value="2">High Pressure Cleaning</option>
-              <option value="3">Vacuum Cleaning</option>
-              <option value="4">Anti Bacterial Spray</option>
-              <option value="5">UV Disinfection</option>
-              <option value="6">Sewage</option>
-              <option value="7">Toilet</option>
-              <option value="8">Septic Tank</option>
-              <option value="9">Mechanised Water Tank Cleaning</option>
+              <option value="Mechanised Dewatering">Mechanised Dewatering</option>
+              <option value="Sludge Removal">Sludge Removal</option>
+              <option value="High Pressure Cleaning">High Pressure Cleaning</option>
+              <option value="Vacuum Cleaning">Vacuum Cleaning</option>
+              <option value="Anti Bacterial Spray">Anti Bacterial Spray</option>
+              <option value="UV Disinfection">UV Disinfection</option>
+              <option value="Sewage">Sewage</option>
+              <option value="Toilet">Toilet</option>
+              <option value="Septic Tank">Septic Tank</option>
+              <option value="Mechanised Water Tank Cleaning">Mechanised Water Tank Cleaning</option>
             </select>
             {errors.service && <p className="text-red-600 mt-1">{errors.service}</p>}
           </div>
