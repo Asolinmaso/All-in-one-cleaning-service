@@ -1,5 +1,8 @@
+'use client'
 import React from 'react';
 import Image from 'next/image';
+import useMobileView from '@/utils/customhooks';
+import BookingForm from './BookingForm';
 
 const testimonials = [
   {
@@ -26,6 +29,8 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const isMobile = useMobileView();
+
   return (
     <section className="bg-white py-20">
       <div className="container max-w-7xl mx-auto px-4 text-center">
@@ -55,6 +60,7 @@ const TestimonialsSection = () => {
           ))}
         </div>
       </div>
+      {isMobile && <BookingForm />}
     </section>
   );
 };

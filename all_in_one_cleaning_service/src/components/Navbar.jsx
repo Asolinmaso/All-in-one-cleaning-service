@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
+import useMobileView from '@/utils/customhooks';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,7 @@ const Navbar = () => {
       menuRef.current.style.height = '0px';
     }
   }, [isOpen]);
-
+  const isMobile = useMobileView();
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="container max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -83,9 +84,9 @@ const Navbar = () => {
           <Link href="/blog">
             <div className="block text-gray-500 hover:text-blue-500">BLOG</div>
           </Link>
-          <Link href="/booking">
+          {!isMobile&&<Link href="/booking">
             <div className="block text-gray-500 hover:text-blue-500">CONTACT</div>
-          </Link>
+          </Link>}
         </div>
       </div>
     </nav>
