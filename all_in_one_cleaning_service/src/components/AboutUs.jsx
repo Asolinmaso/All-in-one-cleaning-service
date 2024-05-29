@@ -10,7 +10,7 @@ const AboutUsSection = () => {
   ];
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-20" id="about">
       <div className="container max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-start">
         <div className="lg:w-1/2 mb-8 lg:mb-0">
           <h2 className="text-yellow-600 text-sm font-bold mb-4">ABOUT US</h2>

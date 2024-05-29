@@ -2,10 +2,29 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter, usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false); // Close menu on mobile after clicking
+    }
+  };
+
+  const handleHomeClick = () => {
+    if (pathname === '/') {
+      handleScroll('home');
+    } else {
+      router.push('/');
+    }
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -16,26 +35,26 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="container max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <Image src="/background.jpg" alt="Logo" width={50} height={50} />
+          <Image src="/logo.jpeg" alt="Logo" width={50} height={50} />
         </div>
         <div className="hidden md:flex justify-center items-center space-x-10">
-          <Link href="/" className="text-black font-semibold hover:text-blue-500">
+          <button onClick={handleHomeClick} className="text-black font-semibold hover:text-blue-500">
             HOME
-          </Link>
-          <Link href="/about" className="text-gray-500 hover:text-blue-500">
+          </button>
+          <button onClick={() => handleScroll('about')} className="text-gray-500 hover:text-blue-500">
             ABOUT US
-          </Link>
-          <Link href="/services" className="text-gray-500 hover:text-blue-500">
+          </button>
+          <button onClick={() => handleScroll('services')} className="text-gray-500 hover:text-blue-500">
             SERVICES
+          </button>
+          <Link href="/gallery">
+            <div className="text-gray-500 hover:text-blue-500">GALLERY</div>
           </Link>
-          <Link href="/gallery" className="text-gray-500 hover:text-blue-500">
-            GALLERY
-          </Link>
-          <Link href="/booking" className="text-gray-500 hover:text-blue-500">
-            CONTACT
+          <Link href="/contact">
+            <div className="text-gray-500 hover:text-blue-500">CONTACT</div>
           </Link>
         </div>
         <div className="md:hidden flex items-center">
@@ -52,20 +71,20 @@ const Navbar = () => {
         style={{ height: '0px' }}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <Link href="/" className="block text-black font-semibold hover:text-blue-500">
+          <button onClick={handleHomeClick} className="block text-black font-semibold hover:text-blue-500">
             HOME
-          </Link>
-          <Link href="/about" className="block text-gray-500 hover:text-blue-500">
+          </button>
+          <button onClick={() => handleScroll('about')} className="block text-gray-500 hover:text-blue-500">
             ABOUT US
-          </Link>
-          <Link href="/services" className="block text-gray-500 hover:text-blue-500">
+          </button>
+          <button onClick={() => handleScroll('services')} className="block text-gray-500 hover:text-blue-500">
             SERVICES
+          </button>
+          <Link href="/blog">
+            <div className="block text-gray-500 hover:text-blue-500">BLOG</div>
           </Link>
-          <Link href="/blog" className="block text-gray-500 hover:text-blue-500">
-            BLOG
-          </Link>
-          <Link href="/contact" className="block text-gray-500 hover:text-blue-500">
-            CONTACT
+          <Link href="/booking">
+            <div className="block text-gray-500 hover:text-blue-500">CONTACT</div>
           </Link>
         </div>
       </div>
