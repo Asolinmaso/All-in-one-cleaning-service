@@ -116,7 +116,6 @@ const services = [
   { value: 'Toilet', label: 'Toilet' },
   { value: 'Septic Tank', label: 'Septic Tank' },
   { value: 'Mechanised Water Tank Cleaning', label: 'Mechanised Water Tank Cleaning' },
-  // Add more services as needed
 ];
 
 const BookingForm = () => {

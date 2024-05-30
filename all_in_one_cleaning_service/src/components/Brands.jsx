@@ -17,7 +17,7 @@ const BrandSection = () => {
         <h1 className="text-4xl font-bold text-gray-800 mb-8">BRANDS WHO TRUST US</h1>
       </div>
       <div className="bg-yellow-300 py-4 overflow-hidden">
-        <div className="flex space-x-8 items-center justify-center whitespace-nowrap">
+        <div className="marquee flex space-x-8 items-center justify-center whitespace-nowrap">
           {brands.map((brand, index) => (
             <div key={index} className="flex flex-col items-center mx-4">
               <div className="w-24 h-24 relative">
