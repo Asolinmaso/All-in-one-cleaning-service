@@ -15,12 +15,12 @@ const slides = [
   {
     name: 'Hospital cleaning',
     description: 'Regular Disinfection: We disinfect all surfaces multiple times a day. Hand Hygiene: Hand sanitizers are available throughout the facility.',
-    image: '/images1/hospital_cleaning.png'
+    image: '/first_cleaning.webp'
   },
   {
     name: 'Office cleaning',
     description: 'Dusting & Surface Cleaning, Vacuuming & Carpet Care, Trash Removal & Recycling, Sanitizing Restrooms & Kitchens, Window & Glass Cleaning',
-    image: '/images1/office_cleaning.png'
+    image: '/first_cleaning.webp'
   },
   {
     name: 'Restaurant cleaning',
@@ -53,8 +53,8 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative w-full flex justify-center items-center overflow-hidden" style={{ height: '60vh' }}>
-      <div className="relative w-3/4 h-full flex justify-center items-center overflow-hidden">
+    <div className="relative w-full flex justify-center items-center mt-10 overflow-hidden" style={{ height: '60vh' }}>
+      <div className="relative w-3/4 h-full flex justify-center items-center">
         <div className="absolute inset-0 flex justify-between items-center">
           {slides.map((slide, index) => (
             <div

@@ -3,11 +3,18 @@ import Image from 'next/image';
 
 const BrandSection = () => {
   const brands = [
-    { name: "YAMAHA", src: "/first_cleaning.webp" },
-    { name: "BLOOM HOSPITAL", src: "/first_cleaning.webp" },
-    { name: "KIA", src: "/first_cleaning.webp" },
-    { name: "HYUNDAI", src: "/first_cleaning.webp" },
-    { name: "MARUTI SUZUKI", src: "/first_cleaning.webp" }
+    { name: "Sutherland", src: "/brands/sutherland.jpg" },
+    { name: "Kavery Hospital", src: "/brands/Kauvery_Hospital.jpg" },
+    { name: "Kumaran Hospital", src: "/brands/Kumaran_Hospital.jpg" },
+    { name: "Madurai Military Hotel", src: "/brands/Madurai_Military_hotel.jpg" },
+    { name: "Bread & Chocolate", src: "/brands/Bread_and_Chocolate.jpeg" },
+    { name: "Sutherland", src: "/brands/sutherland.jpg" },
+    { name: "Allianz", src: "/brands/Allianz.jpg" },
+    { name: "Double Roti", src: "/brands/Double_Roti.jpg" },
+    { name: "Yamaha", src: "/brands/Yamaha-Logo.png" },
+    { name: "India Builders (Chennai) limited", src: "/brands/Indian_Builders.jpg" },
+    { name: "Hotel Sarmani", src: "/brands/Hotel_Sarmani.jpg" }
+
   ];
 
   return (

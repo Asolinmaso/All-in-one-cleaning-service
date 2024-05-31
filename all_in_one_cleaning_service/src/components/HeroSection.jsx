@@ -8,7 +8,8 @@ const HeroSection = () => {
 
   const images = [
     '/first_cleaning.webp',
-    '/Second_Cleaning.jpg'
+    '/Second_Cleaning.jpg',
+    '/third_cleaning.png'
   ];
 
   useEffect(() => {

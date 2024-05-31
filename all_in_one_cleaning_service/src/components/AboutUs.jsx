@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 const AboutUsSection = () => {
   const images = [
-    '/image1.jpg',
-    '/image2.jpg',
-    '/image3.jpg',
-    '/image4.jpg'
+    '/aboutus/bathroom_cleaning.webp',
+    '/aboutus/cleaning.png',
+    '/aboutus/home-cleaning-service-vacuuming.webp',
+    '/aboutus/tools.jpg'
   ];
 
   return (
@@ -22,7 +22,7 @@ const AboutUsSection = () => {
             Read & Share
           </a>
         </div>
-        <div className="lg:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
+        <div className="lg:w-1/2 w-full grid grid-cols-2 grid-rows-2 gap-4">
           {images.map((src, index) => (
             <div key={index} className="w-full h-48 relative">
               <Image src={src} alt={`Image ${index + 1}`} layout="fill" objectFit="cover" className="rounded-lg shadow-lg" />
