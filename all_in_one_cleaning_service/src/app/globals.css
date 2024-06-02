@@ -15,3 +15,8 @@
     display: flex;
     animation: marquee 85s linear infinite;
   }
+
+.bg-form{
+  background: url("/background.webp") 100% 100%;
+  background-size: cover;
+}

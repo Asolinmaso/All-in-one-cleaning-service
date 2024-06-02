@@ -2,10 +2,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { useRouter } from "next/navigation";
 
 const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+  const router = useRouter();
   const images = [
     '/first_cleaning.webp',
     '/Second_Cleaning.jpg',
@@ -20,6 +21,9 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const handleBooking = () =>{
+    router.push("/booking");
+  }
   return (
     <section className="bg-white" >
       <div className="container max-w-7xl mx-auto px-4 py-10 md:py-20 flex flex-col md:flex-row items-center justify-between gap-8">
@@ -30,7 +34,7 @@ const HeroSection = () => {
             Say goodbye to dirt and grime with our comprehensive cleaning packages. From routine maintenance to deep cleaning missions, our team of cleaning superheroes ensures your space shines like never before. With Clean and Clear, victory over mess is guaranteed!
           </p>
           <div className="text-center">
-            <button className="bg-yellow-600 text-white py-2 px-4 rounded">Get Started</button>
+            <button className="bg-yellow-600 text-white py-2 px-4 rounded" onClick={handleBooking}>Get Started</button>
           </div>
         </div>
         <div className="w-full md:w-1/2 lg:w-2/3">

@@ -11,20 +11,12 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleScroll = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false); // Close menu on mobile after clicking
-    }
-  };
+  
 
-  const handleHomeClick = () => {
-    if (pathname === "/") {
-      handleScroll("home");
-    } else {
-      router.push("/");
-    }
+  const handleHomeClick = (value) => {
+   
+      router.push("/"+value);
+    
   };
 
   useEffect(() => {
@@ -39,7 +31,7 @@ const Navbar = () => {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="container max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <Image src="/logo.jpeg" alt="Logo" width={50} height={50} />
+          <Image src="/logo.webp" alt="Logo" width={50} height={50} />
         </div>
         {isMobile&&<div className="flex space-x-4 mt-4 items-center">
           <a
@@ -109,25 +101,22 @@ const Navbar = () => {
         </div>}
         <div className="hidden md:flex justify-center items-center space-x-10">
           <button
-            onClick={handleHomeClick}
+            onClick={()=>handleHomeClick("")}
             className={`${
               pathname === "/" ? "text-black font-semibold" : "text-gray-500"
             }  hover:text-blue-500`}
           >
             HOME
           </button>
-          {pathname === "/"&&<button
-            onClick={() => handleScroll("about")}
-            className="text-gray-500 hover:text-blue-500"
-          >
-            ABOUT US
-          </button>}
-          {pathname === "/"&&<button
-            onClick={() => handleScroll("services")}
-            className="text-gray-500 hover:text-blue-500"
+          
+         <button
+            onClick={() => handleHomeClick("services")}
+            className={`${
+              pathname === "/services" ? "text-black font-semibold" : "text-gray-500"
+            }  hover:text-blue-500`}
           >
             SERVICES
-          </button>}
+          </button>
           <Link href="/gallery">
             <div
               className={`${
@@ -180,34 +169,24 @@ const Navbar = () => {
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <button
-            onClick={handleHomeClick}
+            onClick={()=>handleHomeClick("")}
             className="block text-black font-semibold hover:text-blue-500"
           >
             HOME
           </button>
                     
-          {pathname === "/"&&<div><button
-            onClick={() => handleScroll("about")}
-            className="block text-gray-500 hover:text-blue-500"
-          >
-            ABOUT US
-          </button>
+         
           <button
-            onClick={() => handleScroll("services")}
-            className="block text-gray-500 hover:text-blue-500"
+            onClick={() => handleHomeClick("services")}
+            className={`${
+              pathname === "/services" ? "text-black font-semibold" : "text-gray-500"
+            }  hover:text-blue-500`}
           >
             SERVICES
-          </button></div>}
+          </button>
           <Link href="/gallery">
             <div className="block text-gray-500 hover:text-blue-500">BLOG</div>
           </Link>
-          {!isMobile && (
-            <Link href="/booking">
-              <div className="block text-gray-500 hover:text-blue-500">
-                CONTACT
-              </div>
-            </Link>
-          )}
         </div>
       </div>
     </nav>

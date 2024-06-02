@@ -5,32 +5,32 @@ const slides = [
   {
     name: 'Floor cleaning',
     description: 'Spotless Floors, Every Time! Shine Brighter with Clean Floors! Transform Your Floors with Our Cleaning Services! A Fresh Start for Your Floors! Experience the Magic of Clean Floors!',
-    image: '/first_cleaning.webp'
+    image: '/gallery/floor.jpg'
   },
   {
     name: 'Home cleaning',
     description: 'Experience the joy of a spotless home with our top-to-bottom cleaning services. From kitchens to bathrooms, and everything in between, we’ve got you covered.',
-    image: '/first_cleaning.webp'
+    image: '/gallery/deep-home-cleaning.webp'
   },
   {
     name: 'Hospital cleaning',
     description: 'Regular Disinfection: We disinfect all surfaces multiple times a day. Hand Hygiene: Hand sanitizers are available throughout the facility.',
-    image: '/first_cleaning.webp'
+    image: '/gallery/hospital-cleaning.jpg'
   },
   {
     name: 'Office cleaning',
     description: 'Dusting & Surface Cleaning, Vacuuming & Carpet Care, Trash Removal & Recycling, Sanitizing Restrooms & Kitchens, Window & Glass Cleaning',
-    image: '/first_cleaning.webp'
+    image: '/gallery/office_cleaning.avif'
   },
   {
     name: 'Restaurant cleaning',
     description: 'Our dedicated team works tirelessly to maintain impeccable hygiene standards in every corner of our kitchen. From spotless surfaces to sanitized utensils, we leave no stone unturned in ensuring your safety and satisfaction.',
-    image: '/images1/restaurant_cleaning.png'
+    image: '/gallery/restaurant-cleaning.jpg'
   },
   {
     name: 'Vacuum cleaning',
     description: 'Experience the ultimate clean with our powerful vacuum cleaners. Say goodbye to dust, dirt, and allergens as our advanced technology effortlessly removes debris from every surface. Transform your home into a pristine sanctuary with ease.',
-    image: '/images1/vaccuming.png'
+    image: '/gallery/vacuum-cleaning.jpg'
   }
 ];
 
@@ -40,7 +40,7 @@ const Slider = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000);
+    }, 6000);
     return () => clearInterval(interval);
   }, []);
 
@@ -53,7 +53,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative w-full flex justify-center items-center mt-10 overflow-hidden" style={{ height: '60vh' }}>
+    <div className="relative w-full flex justify-center items-center mt-10 overflow-hidden" style={{height: 'calc(100vh - 125px)'}}>
       <div className="relative w-3/4 h-full flex justify-center items-center">
         <div className="absolute inset-0 flex justify-between items-center">
           {slides.map((slide, index) => (
