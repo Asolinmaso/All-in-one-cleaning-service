@@ -10,22 +10,22 @@ const ServicesSection = () => {
     {
       title: "Sewage Cleaning",
       description: "Efficient, Thorough House Cleaning For A Spotless Home.",
-      image: "/first_cleaning.webp",
+      image: "/services/sewage cleaning.avif",
     },
     {
       title: "Toilet Cleaning",
       description: "Refresh Your Workspace With Expert Office Cleaning.",
-      image: "/Second_Cleaning.jpg",
+      image: "/services/toilet-cleaning.jpg",
     },
     {
       title: "Septic Tank Cleaning",
       description: "Revitalize Your Ride: Professional Car Cleaning For A Gleaming Finish.",
-      image: "/first_cleaning.webp",
+      image: "/services/septic_cleaning.jpg",
     },
     {
       title: "Mechanised Water Tank Cleaning",
       description: "Keep Your Outdoor Space Pristine With Professional Yard Maintenance.",
-      image: "/Second_Cleaning.jpg",
+      image: "/services/mechanized-water-tank-cleaning-service.jpg",
     },
   ];
 
@@ -33,17 +33,17 @@ const ServicesSection = () => {
     {
       title: "1",
       description: "Mechanised Dewatering",
-      image: "/first_cleaning.webp",
+      image: "/services/mechanized-dewatering.webp",
     },
     {
       title: "2",
       description: "Sludge Removal",
-      image: "/Second_Cleaning.jpg",
+      image: "/services/sludge_removal.png",
     },
     {
       title: "3",
       description: "High Pressure Cleaning",
-      image: "/first_cleaning.webp",
+      image: "/services/HPC.jpg",
     },
     {
       title: "4",
@@ -58,7 +58,7 @@ const ServicesSection = () => {
     {
       title: "6",
       description: "UV Disinfection",
-      image: "/Second_Cleaning.jpg",
+      image: "/services/UV.jpg",
     },
   ];
 
@@ -66,17 +66,17 @@ const ServicesSection = () => {
     {
       title: "Ozone Cleaning",
       description: "Efficient, Thorough House Cleaning For A Spotless Home.",
-      image: "/first_cleaning.webp",
+      image: "/services/ozone-cleaning.jpeg",
     },
     {
       title: "Ozone water purifier",
       description: "Refresh Your Workspace With Expert Office Cleaning.",
-      image: "/Second_Cleaning.jpg",
+      image: "/services/ozone-water-purifier.jpg",
     },
     {
       title: "Bacteria Cleaning",
       description: "Revitalize Your Ride: Professional Car Cleaning For A Gleaming Finish.",
-      image: "/first_cleaning.webp",
+      image: "/services/bacteria_cleaning.jpg",
     },
   ];
 
