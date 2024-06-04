@@ -1,7 +1,7 @@
 import React from "react";
-import Image from "next/image";
 
 const Footer = () => {
+  const email = "allinonecs@gmail.com";
   return (
     <footer className="bg-blue-900 text-white py-12">
       <div className="container max-w-7xl mx-auto px-4 gap-8 flex justify-between">
@@ -175,18 +175,19 @@ const Footer = () => {
           <h3 className="text-xl font-semibold mb-4">Contact</h3>
           <ul>
             <li className="mb-2">
-              <div>
-                <i className="fas fa-phone-alt"></i> (+91) 9962172032 , (+91) 9514515540
+            <div className="flex items-center gap-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 50 50"><g fill="red" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke="#344054" d="M25 14.583A10.417 10.417 0 0 1 35.417 25m-12.5-18.625A17 17 0 0 1 25 6.25A18.75 18.75 0 0 1 43.75 25q0 1.045-.125 2.083"/><path stroke="#306cfe" d="M31.25 43.75a27.5 27.5 0 0 1-9.042-3.98L26 34.334a4.167 4.167 0 0 1 5.583-1.062c.688.437 1.396.833 2.084 1.229a4.167 4.167 0 0 1 1.75 5.875l-1.292 1.98a2.44 2.44 0 0 1-2.875 1.395M7.646 15.98l2.083-1.293a4.167 4.167 0 0 1 5.938 1.521c.396.75.791 1.459 1.229 2.084a4.167 4.167 0 0 1-1.063 5.583l-5.541 3.854A27.5 27.5 0 0 1 6.25 18.75a2.44 2.44 0 0 1 1.396-2.77"/><path stroke="#306cfe" d="M10.292 27.73a37 37 0 0 0 5.375 6.603a37 37 0 0 0 6.604 5.375"/></g></svg> <div>(+91) 9962172032 , (+91) 9514515540</div>
               </div>
             </li>
             <li className="mb-2">
               <a href="mailto:allinonecs@gmail.com">
-                <i className="fas fa-envelope"></i> allinonecs@gmail.com
+                <div className="flex items-center gap-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 20 20"><path fill="red" fill-rule="evenodd" d="M18.333 2.5c.92 0 1.667.746 1.667 1.667v11.666c0 .92-.746 1.667-1.667 1.667H1.667C.747 17.5 0 16.754 0 15.833V4.167C0 3.247.746 2.5 1.667 2.5zM7.168 11.328l-4.91 4.852h15.325l-4.857-4.802L10 13.265zM18.64 7.292l-4.796 3.316l4.796 4.736zm-17.279.061v7.836l4.686-4.631zm16.956-3.532H1.698a.358.358 0 0 0-.25.086a.26.26 0 0 0-.085.222v1.62L10 11.656l8.644-5.965V4.199c.001-.134-.03-.231-.092-.292a.306.306 0 0 0-.234-.086"/></svg><div>{email}</div></div>
               </a>
             </li>
             <li className="mb-2">
-              <div>
-                <i className="fas fa-map-marker-alt"></i> No.186,G.N.T Road,Puzhal,chennai-600066
+            <div className="flex items-center gap-5">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24"><path fill="red" d="M12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7m0 2a5 5 0 0 0-5 5c0 1 0 3 5 9.71C17 12 17 10 17 9a5 5 0 0 0-5-5"/></svg><div> No.186,G.N.T Road,Puzhal,chennai-600066</div>
               </div>
             </li>
           </ul>
