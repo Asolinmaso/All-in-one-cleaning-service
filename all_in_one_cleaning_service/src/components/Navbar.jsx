@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="container max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center">
-          <Image src="/logo.webp" alt="Logo" width={50} height={50} />
+          <Image src="/logo.webp" alt="Logo" width={50} height={50} />{!isMobile&&<span className="font-mono px-3 font-bold text-md text-blue-500">All in One <span className="text-green-400">Cleaning Services</span></span>}
         </div>
         {isMobile&&<div className="flex space-x-4 mt-4 items-center">
           <a

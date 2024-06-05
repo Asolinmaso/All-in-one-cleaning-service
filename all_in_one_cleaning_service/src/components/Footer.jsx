@@ -4,8 +4,8 @@ const Footer = () => {
   const email = "allinonecs@gmail.com";
   return (
     <footer className="bg-blue-900 text-white py-12">
-      <div className="container max-w-7xl mx-auto px-4 gap-8 flex justify-between">
-        <div className="flex space-x-4 mt-4">
+      <div className="container max-w-7xl mx-auto px-4 gap-8 flex md:flex-row flex-col justify-between">
+        <div className="flex  space-x-4 mt-4">
           <a
             href="tel:8825539047"
             aria-label="Call"
